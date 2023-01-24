@@ -5,6 +5,21 @@
     <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+
+    <RuntimeIdentifier>browser-wasm</RuntimeIdentifier>
+    <WasmMainJSPath>main.js</WasmMainJSPath>
+
+    <!-- JSExport requires unsafe code -->
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+
+    <!-- Reduce output size -->
+    <InvariantGlobalization>true</InvariantGlobalization>
+    <WasmEmitSymbolMap>false</WasmEmitSymbolMap>
   </PropertyGroup>
+
+  <!-- Copy extra files when publishing the app -->
+  <ItemGroup>
+    <WasmExtraFilesToDeploy Include="index.html" />
+  </ItemGroup>
 
 </Project>
